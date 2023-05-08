@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="table-container">
+  <table id="example" class="table table-striped" style="width:100%">
+    <thead>
+      <tr>
+        <th>SN</th>
+        <th>Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Supplier</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in data %}
+      <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.product_name }} </td>
+        <td>{{ product.unit_price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.supplier_id }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div id="addButton">
+  <button class="add" onclick="addProduct()">
+    <i class="fas fa-add"></i>
+    <span>Add Product</span>
+  </button>
+</div>
+
+<div id="product-form">
+  <form method="POST">
+    {% csrf_token %}
+    <!-- {{ form.as_p }}
+    <div class="add-button">
+      <input type="submit" value="Add Product" class="add" />
+      <input type="button" value="Cancel" class="add" onclick="closeAddMenu()" />
+    </div> -->
+
+    <span class="title">Add Product</span>
+      <div class="add-field">
+        <label for="name">Name:</label>
+        {{ form.product_name }}
+      </div>
+
+      <div class="add-field">
+        <label for="price">Unit Price:</label>
+        {{ form.unit_price }}
+      </div>
+
+      <div class="add-field">
+        <label for="supplier_ID">Supplier:</label>
+        {{ form.supplier_id }}        
+      </div>
+
+      <div class="add-field">
+        <label for="quantity">Quantity:</label>
+        {{ form.quantity }}        
+      </div>
+
+      <div class="add-button">
+        <input type="submit" value="Add Product" class="add" />
+        <input type="button" value="Cancel" class="add" onclick="closeAddMenu()" />
+      </div>
+  </form>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<script>
+  // add form for product
+  function addProduct() {
+    document.getElementById("product-form").style.display = "flex";
+    document.getElementById("example_wrapper").style.display = "none";
+    document.getElementById("addButton").style.display = "none";
+  }
+
+  function closeAddMenu() {
+    document.getElementById("product-form").style.display = "none";
+    document.getElementById("addButton").style.display = "flex";
+    document.getElementById("example_wrapper").style.display = "inline";
+  }
+</script>
+
+{% endblock %}

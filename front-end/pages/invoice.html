@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta informations of web page. -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Home page of my portfolio">
+    <meta name="keyword" content="portfolio, cv, blogs, html portfolio, css, html, javascript">
+    <meta name="author" content="Anish Shrestha">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- External CSS and JS link.  -->
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <!-- Adding Icon library to the webpage. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Invoice</title>
+</head>
+
+<body id="body">
+    <!-- A navigation bar that slides from the right side of the web page. -->
+    <aside class="sideBar" id="sideBar">
+        <a href="javascript:void(0)" class="close" onclick="closeNav()">&times;</a>
+
+        <ul class="sidebar-nav">
+            <li class="nav-item">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="products.html" class="nav-link">
+                    <i class="fas fa-box"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="suppliers.html" class="nav-link">
+                    <i class="fas fa-house-user"></i>
+                    <span>Suppliers</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="purchase.html" class="nav-link">
+                    <i class="fas fa-dollar"></i>
+                    <span>Purchase</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="invoice.html" class="nav-link">
+                    <i class="far fa-file-lines"></i>
+                    <span>Invoice</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="report.html" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Report</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="help.html" class="nav-link">
+                    <i class="fas fa-question"></i>
+                    <span>Help</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Parts of the webpage other than the side navigation bar.  -->
+
+    <!-- Header of webpage.  -->
+
+    <!-- An icon which when clicked on slides in the navigation bar.  -->
+    <div class="openSideNav" id="openSideNav">
+        <span
+            style="font-size: 36px; display: inline; float: left; color:rgb(255, 255, 255); align-content: left; cursor: pointer; top: 0; margin: 0.6rem 0 0 1rem;"
+            onclick="openNav()">&#9776;</span>
+
+        <div class="user-menu">
+            <div class="user" onclick="dropdown()">
+                <div class="profile-image">
+                    <img src="../images/1.jpg" alt="">
+                </div>
+
+                <span>Lakhan Thapa</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="dropdown" class="dropdown" style="display:none">
+        <div class="user-intro">
+            <div class="profile-image">
+                <img src="../images/1.jpg" alt="">
+            </div>
+
+            <div class="user-info">
+                <span>Lakhan Thapa</span>
+                <p>lakhanthapa@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="edit-profile"> <i class="fas fa-pen"></i> Edit profile</div>
+
+        <div class="dropdown-list">
+            <ul>
+                <li class="dropdown-menu">
+                    <a href="accountSettings.html">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                </li>
+
+                <!-- <li class="dropdown-menu">
+                    <hr>
+                </li>
+     -->
+                <li class="dropdown-menu">
+                    <a href="accountSettings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+                <!-- <li class="dropdown-menu">
+                    <hr>
+                </li> -->
+
+                <li class="dropdown-menu">
+                    <a href="accountSettings.html">
+                        <i class="fas fa-sign-out"></i>
+                        <span>Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+    <div id="main">
+        <div class="invoiceForm">
+            <form method="POST">
+                <!-- {% csrf_token %} -->
+
+                <div class="form-title">
+                    <p>Add Invoice</p>
+                </div>
+                <div class="input_field">
+                    <label for="price">Invoice ID:</label>
+                    <!-- {{ form.invoice_id }} -->
+                    <input type="text">
+                </div>
+                <div class="input-list">
+                    <div class="input_field">
+                        <label for="price">Product ID:</label>
+                        <!-- {{ form.product_id }} -->
+                        <input type="text">
+                    </div>
+
+                    <div class="input_field">
+                        <label for="quantity">Quantity:</label>
+                        <!-- {{ form.ordered_quantity }} -->
+                        <input type="text">
+                    </div>
+
+                    <div class="input_field">
+                        <label for="supplier_ID">Unit Price:</label>
+                        <!-- {{ form.line_total }} -->
+                        <input type="text">
+                    </div>
+
+                    <div class="input_field">
+                        <label for="supplier_ID">Line Total:</label>
+                        <!-- {{ form.line_total }} -->
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <input type="button" value="Show More" class="add" />
+                    <input type="button" value="Show Less" class="add" />
+                    <input type="submit" value="Add" class="add" />
+                    <input type="button" value="Cancel" class="add" />
+                </div>
+            </form>
+        </div>
+
+
+        <!-- <div class="invoiceTable">
+            <table id="example" class="table table-striped" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>SN</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for invoice in invoice_data %}
+                <tr>
+                  <td>{{ invoice.invoice_id_id }}</td>
+                  <td>{{ invoice.product_id}}</td>
+                  <td>{{ invoice.ordered_quantity}}</td>
+                  <td>{{ invoice.line_total}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div> -->
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    </div>
+    <script src="../main.js"></script>
+
+</body>
+
+</html>
